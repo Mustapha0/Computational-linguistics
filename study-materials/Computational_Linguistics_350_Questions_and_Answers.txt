@@ -1,0 +1,1728 @@
+COMPUTATIONAL LINGUISTICS
+350+ REVIEW QUESTIONS AND ANSWER GUIDE
+Based on the titles and themes of Computational Linguistics: Models, Resources, Applications
+Study resource — original questions and paraphrased answers
+
+HOW TO USE THIS FILE
+The questions follow the broad book structure: Preface and orientation; Chapter I,
+Introduction; Chapter II, A Historical Outline; Chapter III, Products of Computational
+Linguistics: Present and Prospective; Chapter IV, Language as a Meaning ⇔ Text
+Transformer; Chapter V, Linguistic Models; Exercises; and general review.
+Answers are concise study outlines, not quotations from the book. Some questions are
+open-ended: use the answer as a starting point and support your own response with
+examples. Terminology and theoretical details can vary across linguistic frameworks.
+
+================================================================================
+PART A. GENERAL ORIENTATION AND PREFACE (Questions 1–25)
+================================================================================
+
+1. What is computational linguistics?
+Answer: It is the study of language using computational methods and the development
+of computer systems that analyze, interpret, retrieve, translate, or generate language.
+
+2. Why does computational linguistics combine linguistics and computer science?
+Answer: Linguistics describes language patterns and meaning; computer science provides
+formal representations, algorithms, data structures, and implementation methods.
+
+3. Why is natural language difficult for computers to process?
+Answer: It is ambiguous, context-sensitive, variable, productive, and shaped by grammar,
+meaning, discourse, and social conventions.
+
+4. What is the difference between a linguistic theory and a language-processing system?
+Answer: A theory explains or describes linguistic patterns; a system implements
+procedures for solving a defined task using representations and algorithms.
+
+5. Why is formalization important in computational linguistics?
+Answer: It makes assumptions explicit and turns observations into rules or procedures
+that can be implemented, tested, compared, and revised.
+
+6. What is a language corpus?
+Answer: A corpus is a collection of language data assembled for a particular research
+or application purpose.
+
+7. Does a larger corpus automatically guarantee better results?
+Answer: No. Data quality, representativeness, annotation, domain match, and duplication
+also affect performance.
+
+8. What is linguistic annotation?
+Answer: It is the addition of labels or structures to language data, such as part-of-speech
+tags, syntactic relations, entities, or semantic roles.
+
+9. Why do annotation guidelines matter?
+Answer: They help annotators apply labels consistently and make the resulting data
+interpretable and useful for training or evaluation.
+
+10. What is the difference between raw text and annotated text?
+Answer: Raw text contains the original linguistic material; annotated text includes
+additional labels or structural information.
+
+11. What is meant by a language-processing pipeline?
+Answer: It is a sequence of components, such as tokenization, parsing, and semantic
+analysis, that transform input into a desired output.
+
+12. What is error propagation?
+Answer: It occurs when an incorrect result from an earlier component harms the output
+of later components.
+
+13. Why should a system be evaluated on data not used to build it?
+Answer: Unseen evaluation data provides better evidence of whether the system generalizes
+rather than merely memorizes or fits its development examples.
+
+14. What is generalization?
+Answer: Generalization is the ability to perform well on relevant cases beyond the data
+used during development or training.
+
+15. What is the difference between a prototype and a production system?
+Answer: A prototype demonstrates an idea under limited conditions; a production system
+must handle realistic inputs, failures, scale, and maintenance.
+
+16. What is coverage in language technology?
+Answer: Coverage is the range of words, constructions, inputs, or situations the system
+can handle.
+
+17. What is robustness?
+Answer: Robustness is the ability to remain useful when input varies, contains noise,
+or differs from the examples used during development.
+
+18. Why can a fluent output still be incorrect?
+Answer: Fluency concerns how natural the language sounds; factual accuracy and meaning
+preservation are separate qualities.
+
+19. Why is the application domain important?
+Answer: Vocabulary, style, data patterns, and acceptable errors differ between domains
+such as medicine, education, law, and casual conversation.
+
+20. What is a false positive in language processing?
+Answer: It is a case incorrectly identified as positive—for example, a correct word
+wrongly flagged as misspelled.
+
+21. What is a false negative?
+Answer: It is a real case the system fails to identify, such as an actual spelling error
+that the checker overlooks.
+
+22. Why should a computational model state its limitations?
+Answer: Users and researchers need to know where results may be unreliable and what
+kinds of input the system was not designed to handle.
+
+23. What is the difference between a language resource and an algorithm?
+Answer: A resource supplies information such as examples or lexical entries; an algorithm
+specifies how the system processes information.
+
+24. Why is error analysis useful?
+Answer: It reveals systematic weaknesses that an overall performance score may conceal
+and guides targeted improvements.
+
+25. What is the central challenge of computational linguistics?
+Answer: To build useful, testable computational accounts of language while managing
+its structure, variability, ambiguity, context, and meaning.
+
+================================================================================
+PART B. CHAPTER I — INTRODUCTION (Questions 26–65)
+================================================================================
+
+26. What major levels of language may a computational system model?
+Answer: Phonetics, phonology, morphology, syntax, semantics, pragmatics, and discourse,
+depending on the task.
+
+27. What is phonetics?
+Answer: Phonetics studies the physical production, transmission, and perception of speech
+sounds.
+
+28. What is phonology?
+Answer: Phonology studies how a language organizes sounds into a system of contrasts
+and patterns.
+
+29. What is morphology?
+Answer: Morphology studies word structure and the ways morphemes form words and word
+forms.
+
+30. What is syntax?
+Answer: Syntax concerns how words combine into phrases and sentences and the relations
+among those units.
+
+31. What is semantics?
+Answer: Semantics studies linguistic meaning and the interpretation of words, phrases,
+sentences, and relations.
+
+32. What is pragmatics?
+Answer: Pragmatics studies how context, speaker intention, and communicative situations
+contribute to interpretation.
+
+33. What is discourse analysis?
+Answer: It studies relationships across sentences or turns, including reference,
+coherence, topic development, and discourse structure.
+
+34. Why do linguistic levels interact?
+Answer: Information at one level can constrain or clarify another; for example, syntax
+can help resolve word meaning and morphology can signal grammatical relations.
+
+35. What is a token?
+Answer: A token is one occurrence of a unit in a sequence, such as a particular
+occurrence of a word in a document.
+
+36. What is a type?
+Answer: A type is a distinct form counted without counting every repeated occurrence
+separately.
+
+37. What is a lemma?
+Answer: A lemma is a conventional dictionary form used to group related inflected forms.
+
+38. What is a lexeme?
+Answer: A lexeme is an abstract lexical item associated with a family of forms and a
+lexical meaning or set of related senses.
+
+39. How do a lemma and a word form differ?
+Answer: A lemma is the citation form used to group forms; a word form is the particular
+surface form appearing in a text.
+
+40. Why can tokenization be difficult?
+Answer: Punctuation, abbreviations, compounds, contractions, URLs, and language-specific
+writing conventions complicate the identification of tokens.
+
+41. What is part-of-speech tagging?
+Answer: It assigns grammatical categories, such as noun, verb, adjective, or determiner,
+to tokens in context.
+
+42. Why is part-of-speech tagging context-sensitive?
+Answer: A form can belong to different grammatical categories in different contexts,
+such as “book” in “read a book” and “book a room.”
+
+43. What is a syntactic parser?
+Answer: A parser assigns a syntactic structure to an input sentence.
+
+44. What is a semantic role?
+Answer: A semantic role describes the part a participant plays in an event or relation,
+such as agent, patient, recipient, or instrument.
+
+45. What is an agent?
+Answer: An agent is typically the participant that initiates or performs an action,
+though exact definitions depend on the semantic framework.
+
+46. What is a patient?
+Answer: A patient is typically the participant affected by an action or event.
+
+47. Why should grammatical function and semantic role be distinguished?
+Answer: Subjects are not always agents, and objects are not always patients; active and
+passive sentences can express similar events with different grammatical arrangements.
+
+48. What is a corpus-based method?
+Answer: It uses patterns or evidence from collected language data to develop or evaluate
+a linguistic analysis or system.
+
+49. What is a rule-based method?
+Answer: It relies on explicitly specified rules or constraints to analyze or generate
+language.
+
+50. What is a hybrid method?
+Answer: It combines approaches, such as learned predictions with symbolic rules or
+structured lexical resources.
+
+51. What is a training set?
+Answer: It is the data used to fit a model or learn its parameters.
+
+52. What is a development or validation set?
+Answer: It is data used to tune a model, select settings, or compare candidate systems
+during development.
+
+53. What is a test set?
+Answer: It is data reserved for final evaluation to estimate performance on unseen cases.
+
+54. Why should test data be kept separate from training data?
+Answer: Separation reduces data leakage and makes evaluation more credible.
+
+55. What is data leakage?
+Answer: It occurs when information from evaluation data improperly influences training
+or model selection, leading to overly optimistic results.
+
+56. What does representativeness mean in corpus design?
+Answer: The data reflects the language varieties, genres, populations, and conditions
+relevant to the intended research or deployment.
+
+57. Why might a news corpus be unsuitable for conversational speech research?
+Answer: News writing differs from spontaneous conversation in vocabulary, syntax,
+disfluency, register, and communicative context.
+
+58. What is inter-annotator agreement?
+Answer: It measures the degree to which annotators assign the same labels or structures
+to the same data under a shared scheme.
+
+59. Does high inter-annotator agreement prove that an annotation scheme is correct?
+Answer: No. Annotators can consistently apply a scheme that fails to capture important
+linguistic distinctions.
+
+60. What is descriptive adequacy?
+Answer: It concerns how well a linguistic account describes the relevant phenomena.
+
+61. What is computational efficiency?
+Answer: It concerns the resources and time required to run a system.
+
+62. Why can a linguistically detailed system be computationally expensive?
+Answer: Rich representations and many alternative analyses can increase memory use,
+search, and processing time.
+
+63. What is a baseline system?
+Answer: A simple reference method used to judge whether a more complex system provides
+a meaningful improvement.
+
+64. Why is comparison with a baseline important?
+Answer: It shows whether complexity actually improves performance beyond a simple,
+transparent alternative.
+
+65. How should a research question guide model design?
+Answer: The question defines what information matters, what output is required, and
+which representations and evaluation methods are appropriate.
+
+================================================================================
+PART C. CHAPTER II — A HISTORICAL OUTLINE (Questions 66–125)
+================================================================================
+
+66. Why study the history of computational linguistics?
+Answer: Historical approaches introduced concepts such as formal grammars, phrase
+structure, transformations, valency, constraints, and meaning-text mapping.
+
+67. What is structuralism in linguistics?
+Answer: It emphasizes the organization of linguistic units and their relations within
+a language system.
+
+68. What does distributional analysis examine?
+Answer: It examines the contexts in which linguistic units occur and how those contexts
+help characterize their behavior.
+
+69. What is a formal grammar?
+Answer: It is a system of rules or constraints that specifies permitted structures or
+sequences.
+
+70. What is a context-free grammar (CFG)?
+Answer: A CFG contains production rules in which a nonterminal category can be rewritten
+as a sequence of terminals and/or nonterminals.
+
+71. What is a production rule?
+Answer: It specifies how one grammatical symbol or category may be expanded into other
+symbols or categories.
+
+72. In a rule S → NP VP, what does the rule express?
+Answer: It expresses a simplified analysis in which a sentence consists of a noun phrase
+followed by a verb phrase.
+
+73. What is a terminal symbol?
+Answer: A terminal is a basic symbol of the generated sequence, often a word or token.
+
+74. What is a nonterminal symbol?
+Answer: A nonterminal is a grammatical category that can be expanded by grammar rules.
+
+75. What is a derivation?
+Answer: A derivation is a sequence of rule applications that produces a string or
+structure from a grammar's starting symbol.
+
+76. What is a parse tree?
+Answer: It is a tree representation of the hierarchical structure assigned to a sentence.
+
+77. How does a derivation differ from a parse tree?
+Answer: A derivation records the steps of rule application; a parse tree displays the
+resulting hierarchical organization.
+
+78. What is constituency?
+Answer: Constituency groups words into phrases and larger units that function as
+structural constituents.
+
+79. What is a constituent?
+Answer: A constituent is a unit, such as a noun phrase or verb phrase, that functions
+as a component within a larger structure.
+
+80. What is dependency grammar?
+Answer: It represents syntactic structure through relations between heads and their
+dependents.
+
+81. What is the head of a phrase or dependency?
+Answer: The head is the central element that determines important properties or governs
+the relation in the chosen analysis.
+
+82. How do constituency and dependency representations differ?
+Answer: Constituency emphasizes phrase groupings; dependency emphasizes head-dependent
+relations between words.
+
+83. Can a sentence have more than one parse?
+Answer: Yes. Structural ambiguity can permit multiple analyses of the same word sequence.
+
+84. What is overgeneration in grammar?
+Answer: It occurs when a grammar permits strings or structures that should not be allowed
+under the intended account.
+
+85. What is undergeneration?
+Answer: It occurs when a grammar fails to permit valid strings or structures.
+
+86. What is generative grammar concerned with?
+Answer: It seeks to characterize the structures a finite system of principles can
+generate, including novel sentences.
+
+87. Why is a grammar more than a list of memorized sentences?
+Answer: Speakers can understand and produce new sentences, so a grammar must capture
+general patterns that extend beyond memorized examples.
+
+88. What is a transformation in transformational grammar?
+Answer: It is a formal operation or relation used in a theoretical account to connect
+structures or explain differences between surface forms.
+
+89. How do active and passive sentences illustrate related structures?
+Answer: They can describe similar events while changing which participant is the subject
+and how the agent is expressed.
+
+90. Why is word order not always enough to identify semantic roles?
+Answer: Different constructions arrange participants differently, and grammatical
+subjecthood does not always correspond to the agent role.
+
+91. What is valency?
+Answer: Valency describes the complement patterns or participant structures licensed
+by a lexical item, especially a predicate.
+
+92. Why is valency lexical information?
+Answer: Individual words differ in which complements they require or permit and in the
+syntactic forms those complements take.
+
+93. Give an example of a verb with a location complement.
+Answer: “Put” commonly requires an object and a location or destination, as in “put the
+cup on the table.”
+
+94. Why is “sleep” different from “put” in valency?
+Answer: “Sleep” can form a clause without a direct object or location complement, while
+the ordinary use of “put” requires additional complement information.
+
+95. What is subcategorization?
+Answer: It describes the syntactic categories or complement frames a lexical item
+selects or permits.
+
+96. What is a grammatical constraint?
+Answer: It is a condition that structures must satisfy to be accepted by a grammar or
+model.
+
+97. What is agreement?
+Answer: Agreement is a grammatical relationship in which forms share features such as
+number, person, or gender where the language requires it.
+
+98. Why can lexical information improve parsing?
+Answer: It helps a parser determine which complements and constructions are licensed
+by particular words.
+
+99. What is a constraint-based grammar?
+Answer: It describes structures through conditions that must be satisfied rather than
+only through simple rewrite rules.
+
+100. What is Head-Driven Phrase Structure Grammar (HPSG)?
+Answer: HPSG is a constraint-based grammatical framework using structured feature
+descriptions and information about heads, complements, and agreement.
+
+101. What is a feature structure?
+Answer: It is a representation containing attributes and values, such as category,
+number, person, or subcategorization information.
+
+102. What is unification?
+Answer: Unification combines compatible feature structures while preserving their
+information and rejecting incompatible values.
+
+103. When do feature structures fail to unify?
+Answer: They fail when they assign conflicting values to the same feature under the
+system's constraints, such as singular versus plural when those values are exclusive.
+
+104. Why is unification useful?
+Answer: It allows grammatical information to be combined and checked consistently across
+different parts of a structure.
+
+105. Is unification a complete theory of meaning?
+Answer: No. It is a formal operation on representations; its capabilities depend on
+which features and constraints are encoded.
+
+106. What is Meaning–Text Theory (MTT)?
+Answer: It is a linguistic approach that models relationships between meaning and text
+through several levels or stages of representation.
+
+107. Why use a multistage meaning-to-text model?
+Answer: It separates decisions such as semantic organization, lexical selection,
+syntax, morphology, and surface realization.
+
+108. What is a dependency tree?
+Answer: It is a tree in which words are linked through directed grammatical dependency
+relations.
+
+109. What is a semantic link?
+Answer: It is a relation between semantic units, such as an agent relation, cause,
+possession, location, or part-whole relation.
+
+110. How does a syntactic dependency differ from a semantic relation?
+Answer: A syntactic dependency describes a grammatical relation; a semantic relation
+describes a relation in the interpreted content.
+
+111. What is a collocation?
+Answer: A collocation is a conventional combination of words, such as “make a decision”
+or “strong tea.”
+
+112. Why are collocations important for language generation?
+Answer: Grammatically possible alternatives may sound unnatural, so conventional
+combinations help produce idiomatic output.
+
+113. What is the relation between grammar and lexicon?
+Answer: Grammar describes general structural patterns, while the lexicon records
+word-specific information; effective models usually need both.
+
+114. What is the advantage of symbolic linguistic models?
+Answer: Their explicit rules and structures can make assumptions and decisions easier
+to inspect and explain.
+
+115. What is one limitation of hand-built grammars?
+Answer: They can be expensive to construct and may have limited coverage or difficulty
+with unexpected variation.
+
+116. How can probabilistic ranking complement a grammar?
+Answer: It can rank multiple analyses according to their estimated plausibility in
+context.
+
+117. What is a lexical entry?
+Answer: It is a record of information about a lexical item, potentially including
+category, inflection, meaning, valency, and usage constraints.
+
+118. Why might one word require multiple lexical entries or senses?
+Answer: A form can have distinct meanings or grammatical behaviors that need separate
+descriptions for accurate analysis.
+
+119. What does a historical comparison of theories reveal?
+Answer: It reveals different choices about representation, generalization, lexical
+information, structural constraints, and the mapping between form and meaning.
+
+120. Are historical symbolic theories irrelevant to modern systems?
+Answer: No. Their representations and distinctions remain useful in grammar design,
+error analysis, structured prediction, and hybrid systems.
+
+121. What is the difference between parsing and generation?
+Answer: Parsing analyzes an input string into a structure; generation constructs a
+string from a representation or communicative goal.
+
+122. Why can a grammar be theoretically adequate but computationally difficult?
+Answer: It may allow many possible analyses or require expensive search to find an
+appropriate structure.
+
+123. What is a hybrid linguistic model?
+Answer: It combines methods, for example a symbolic grammar with a statistical parser
+or a neural component constrained by explicit linguistic rules.
+
+124. How can lexical valency help machine translation?
+Answer: It can indicate how a source verb's participants are expressed and guide the
+choice of a suitable target-language construction.
+
+125. What is the main lesson of the historical chapter?
+Answer: Computational descriptions of language need structured representations and
+constraints, and different theories emphasize different aspects of that problem.
+
+================================================================================
+PART D. CHAPTER III — PRODUCTS OF COMPUTATIONAL LINGUISTICS (Questions 126–195)
+================================================================================
+
+126. Why classify language technologies by task?
+Answer: Task-based classification clarifies the input, output, linguistic knowledge,
+evaluation criteria, and error costs.
+
+127. What is automatic hyphenation?
+Answer: It identifies permissible word-division points for line breaks according to
+the conventions of a language.
+
+128. Why is hyphenation language-specific?
+Answer: Languages differ in syllable patterns, morphology, orthography, and accepted
+division conventions.
+
+129. What is spell checking?
+Answer: It detects words that may be misspelled and may propose likely corrections.
+
+130. What is edit distance?
+Answer: It measures the cost of transforming one string into another through operations
+such as insertion, deletion, or substitution.
+
+131. Why can dictionary-only spell checking fail?
+Answer: It may miss real-word errors and may wrongly flag valid names, rare words, or
+technical terms absent from the dictionary.
+
+132. What is a real-word spelling error?
+Answer: It is an error in which the resulting form is a valid word but is incorrect
+in the sentence's context.
+
+133. Why is context useful for spell correction?
+Answer: It helps distinguish valid words that are plausible in a sentence from valid
+words that are likely unintended.
+
+134. What is grammar checking?
+Answer: It identifies likely grammatical problems and may suggest corrections.
+
+135. Why is grammar checking difficult?
+Answer: Natural language contains exceptions, variation, fragments, quotations, and
+context-sensitive constructions that can trigger false alarms.
+
+136. What is precision in grammar checking?
+Answer: It is the proportion of flagged problems that are genuine problems under the
+chosen standard or annotation policy.
+
+137. What is recall in grammar checking?
+Answer: It is the proportion of genuine problems that the checker successfully detects.
+
+138. What is style checking?
+Answer: It evaluates writing features such as clarity, concision, consistency, tone,
+or repetition rather than only grammatical correctness.
+
+139. Why should style advice be contextual?
+Answer: Appropriate style depends on audience, genre, purpose, and register.
+
+140. What is a lexical resource?
+Answer: It stores information about words or expressions, such as meanings, forms,
+grammatical behavior, and usage patterns.
+
+141. How does a machine lexicon differ from a general dictionary?
+Answer: A machine lexicon typically stores structured fields for computational access,
+whereas a general dictionary prioritizes human-readable explanations.
+
+142. What is information retrieval?
+Answer: It finds and ranks documents or passages that may be relevant to a query.
+
+143. How does information retrieval differ from question answering?
+Answer: Retrieval returns potentially useful material; question answering aims to
+formulate a response based on evidence or interpretation.
+
+144. What is ranking in a search system?
+Answer: Ranking orders candidate results by estimated relevance or usefulness.
+
+145. Why can a search query be ambiguous?
+Answer: A term may have several meanings or refer to different entities or domains.
+
+146. What is query expansion?
+Answer: It adds related terms or representations to a query to improve retrieval.
+
+147. What is precision at k?
+Answer: It measures the proportion of the top k retrieved results that are relevant.
+
+148. What is recall in information retrieval?
+Answer: It measures the proportion of all relevant items that the system retrieves.
+
+149. What is automatic summarization?
+Answer: It creates a shorter text intended to preserve important information from a source.
+
+150. What is extractive summarization?
+Answer: It selects existing sentences or passages from the source.
+
+151. What is abstractive summarization?
+Answer: It generates new wording to express the source's main information.
+
+152. Why is summarization not simply deletion?
+Answer: A good summary must preserve central claims, important relations, and necessary
+qualifications while removing less important material.
+
+153. What is factuality in summarization?
+Answer: Factuality means that the summary's claims are supported by the source and do
+not introduce invented or distorted information.
+
+154. Why can overlap metrics be insufficient for summaries?
+Answer: They may penalize valid paraphrases or reward word overlap without checking
+whether the main meaning is accurately preserved.
+
+155. What is machine translation?
+Answer: It automatically converts text from a source language into a target language.
+
+156. Why is machine translation more than word replacement?
+Answer: Languages differ in syntax, morphology, idioms, lexical distinctions, and how
+they express information and relations.
+
+157. What is translation adequacy?
+Answer: It concerns how well a translation preserves the relevant content and meaning
+of the source.
+
+158. What is translation fluency?
+Answer: It concerns how natural and well-formed the target-language output is.
+
+159. Can a translation be fluent but inaccurate?
+Answer: Yes. Natural-sounding text may omit, add, or distort source information.
+
+160. What is a natural-language interface?
+Answer: It lets users communicate with a database, application, or service using
+ordinary language.
+
+161. What is intent detection?
+Answer: It identifies the action or communicative goal a user expresses, such as asking
+for information or requesting a change.
+
+162. Why should a natural-language interface ask clarifying questions?
+Answer: Clarification helps resolve missing or ambiguous details before a potentially
+incorrect action is taken.
+
+163. Why is understanding a command different from being authorized to execute it?
+Answer: Interpretation identifies what the user requests; authorization checks whether
+the action is permitted and safe.
+
+164. What is information extraction?
+Answer: It converts information in unstructured text into structured fields or records.
+
+165. What is named-entity recognition?
+Answer: It identifies spans that refer to entities such as people, organizations,
+locations, dates, or other predefined types.
+
+166. What is relation extraction?
+Answer: It identifies relations between entities or events described in text.
+
+167. What is event extraction?
+Answer: It identifies events and relevant details such as participants, time, place,
+status, and relations.
+
+168. Why must extraction systems detect negation?
+Answer: Without negation handling, “The company did not acquire the firm” could be
+incorrectly recorded as a positive acquisition.
+
+169. What is coreference resolution?
+Answer: It identifies expressions that refer to the same entity, such as a name and a
+later pronoun.
+
+170. What is entity normalization?
+Answer: It maps different mentions or formats to a standard representation when the
+evidence supports doing so.
+
+171. What is text generation?
+Answer: It produces natural-language text from structured data, a meaning
+representation, a goal, or other input.
+
+172. What is surface realization?
+Answer: It converts a selected content and structure into an actual linguistic form,
+including word forms and ordering.
+
+173. Why must generated text be checked for factual accuracy?
+Answer: A system may produce grammatical language that changes dates, quantities,
+participants, or other facts.
+
+174. What is language understanding?
+Answer: It is a broad term for inferring relevant linguistic, semantic, or communicative
+information from language input.
+
+175. Does successful intent classification prove full language understanding?
+Answer: No. A system may identify a broad task without resolving reference, factual
+content, implications, or discourse context.
+
+176. Why is speech recognition related to computational linguistics?
+Answer: It maps speech signals to linguistic units and may use lexical, phonological,
+syntactic, and contextual information.
+
+177. Why is speech synthesis related to language generation?
+Answer: It converts linguistic content into speech, requiring choices about pronunciation,
+prosody, rhythm, and timing.
+
+178. What is an end-to-end language application?
+Answer: It is the complete user-facing system, including its connected components,
+rather than one isolated processing module.
+
+179. Why can component-level scores be misleading?
+Answer: A component can perform well alone but fail to improve the complete application
+because its errors or delays affect downstream steps.
+
+180. What is domain shift?
+Answer: It occurs when deployment data differs substantially from the data used for
+training or development.
+
+181. How can domain shift affect spell checking?
+Answer: A checker trained on general language may flag specialist terms or new vocabulary
+from a technical domain.
+
+182. How can domain shift affect machine translation?
+Answer: A system may mistranslate domain-specific terminology or fail on sentence
+patterns uncommon in its training data.
+
+183. Why are high-stakes applications different?
+Answer: Errors may have serious consequences, so stronger validation, transparency,
+human review, and uncertainty handling may be needed.
+
+184. What is a false alarm in style checking?
+Answer: It is a suggestion that incorrectly treats an acceptable stylistic choice as
+a problem.
+
+185. Why should evaluation include realistic user data?
+Answer: Realistic data reveals variation and errors that carefully selected examples
+may hide.
+
+186. What is human-in-the-loop processing?
+Answer: It includes a human reviewer or decision-maker in the system's workflow.
+
+187. Why might human review be useful in information extraction?
+Answer: It can verify uncertain or consequential facts before they are stored or acted on.
+
+188. What is a knowledge base?
+Answer: It is a structured collection of facts, entities, relations, or rules that a
+system can consult.
+
+189. How can a knowledge base support question answering?
+Answer: It can provide structured facts or relations that help interpret a question
+and construct an evidence-based answer.
+
+190. What is terminology management?
+Answer: It records and controls domain-specific terms and their preferred forms,
+especially across documents or translations.
+
+191. Why is consistency important in technical translation?
+Answer: Different translations of the same term can confuse readers or change the
+intended technical distinction.
+
+192. What is a user-centered evaluation?
+Answer: It assesses whether a system helps users accomplish their actual goals, not
+only whether it scores well on an abstract metric.
+
+193. Why should language tools explain suggestions?
+Answer: Explanations help users judge whether a recommendation applies and learn from
+the system's feedback.
+
+194. What common principle links spell checking, translation, and summarization?
+Answer: Each requires a defined task, suitable resources, context-sensitive decisions,
+and evaluation of errors that matter to users.
+
+195. What is the main lesson of the applications chapter?
+Answer: Language technologies share core linguistic challenges, but each task needs
+its own representations, resources, evaluation, and error policy.
+
+================================================================================
+PART E. CHAPTER IV — LANGUAGE AS A MEANING ⇔ TEXT TRANSFORMER (Questions 196–250)
+================================================================================
+
+196. What does it mean to view language as a meaning-text transformer?
+Answer: It models relationships between conceptual content and linguistic expressions,
+in both interpretation and production.
+
+197. What are the two broad directions of a meaning-text model?
+Answer: Meaning to text during production, and text to meaning during interpretation.
+
+198. Are meaning-to-text and text-to-meaning exact inverses?
+Answer: No. Different texts can express similar meanings, and one text can have multiple
+interpretations.
+
+199. Why can one meaning be expressed by different sentences?
+Answer: Speakers can choose synonyms, paraphrases, different syntactic constructions,
+or different levels of detail.
+
+200. What is synonymy?
+Answer: It is a relation between expressions with similar or overlapping meanings.
+
+201. Are synonyms always interchangeable?
+Answer: No. They can differ in register, connotation, collocation, grammar, or emphasis.
+
+202. What is homonymy?
+Answer: It involves a single form associated with distinct meanings, such as “bank”
+for a financial institution and a river edge.
+
+203. What is lexical ambiguity?
+Answer: It occurs when a word or lexical form has more than one possible meaning or
+grammatical interpretation.
+
+204. What is syntactic ambiguity?
+Answer: It occurs when a sequence of words permits more than one syntactic structure.
+
+205. What is referential ambiguity?
+Answer: It occurs when an expression, often a pronoun or description, could refer to
+more than one entity.
+
+206. What is pragmatic ambiguity?
+Answer: It occurs when the intended communicative force or implication is uncertain
+from the wording and available context.
+
+207. What is attachment ambiguity?
+Answer: It occurs when a phrase can be structurally associated with different parts
+of a sentence.
+
+208. Give an example of attachment ambiguity.
+Answer: “I photographed the actor with the camera” may mean the camera was used to
+take the photograph or that the actor had the camera.
+
+209. What is scope ambiguity?
+Answer: It occurs when the relative scope of expressions such as quantifiers permits
+different interpretations.
+
+210. How can context resolve lexical ambiguity?
+Answer: Nearby words, topic, discourse, and world knowledge can make one sense more
+plausible than alternatives.
+
+211. Does context always eliminate ambiguity?
+Answer: No. Context may be insufficient, contradictory, or compatible with more than
+one interpretation.
+
+212. What is semantic representation?
+Answer: It is a formal or structured account of selected meaning information needed
+for an analysis or task.
+
+213. Why can a semantic representation be task-specific?
+Answer: Different applications require different information; a search system and an
+event database do not need identical representations.
+
+214. What is a predicate in a semantic representation?
+Answer: It expresses a property, relation, or event that can connect to participants
+or arguments.
+
+215. What is an event representation?
+Answer: It represents an event and may specify its type, participants, time, location,
+instrument, or other attributes.
+
+216. What is a semantic network?
+Answer: It represents concepts or entities as nodes connected by labeled relations.
+
+217. How does a semantic graph differ from a syntactic tree?
+Answer: A syntactic tree represents grammatical organization; a semantic graph represents
+meaning relations and may contain links not captured by syntax alone.
+
+218. What is compositionality?
+Answer: It is the principle that the meaning of a complex expression is determined in
+part by the meanings of its components and how they are combined.
+
+219. Why does compositionality matter for parsing?
+Answer: A system needs to combine the meanings of words and phrases according to
+structure rather than interpret every sentence as an isolated whole.
+
+220. What is a non-compositional expression?
+Answer: It is an expression whose conventional meaning cannot be fully predicted by
+combining the ordinary meanings of its parts, as with many idioms.
+
+221. Why is semantic decomposition useful?
+Answer: It breaks complex content into smaller components that can be represented,
+compared, reused, or reasoned about.
+
+222. What is a semantic primitive?
+Answer: It is a basic element in a chosen semantic representation from which more
+complex descriptions may be built.
+
+223. What is a risk of using too few semantic primitives?
+Answer: The representation may fail to distinguish meanings that matter for the task.
+
+224. What is a risk of using too many semantic primitives?
+Answer: The representation may become difficult to maintain, learn, and generalize.
+
+225. What is the difference between sentence meaning and speaker intention?
+Answer: Sentence meaning concerns conventional linguistic interpretation; speaker
+intention concerns what the speaker is trying to communicate in context.
+
+226. What is an implicature?
+Answer: It is an inferred meaning that is not directly stated but is suggested by the
+utterance and context.
+
+227. Why can a literal interpretation be insufficient?
+Answer: Speakers use idioms, indirect requests, irony, metaphor, and context-dependent
+expressions that go beyond literal word meanings.
+
+228. What is coreference in discourse?
+Answer: It is the relation in which multiple expressions refer to the same entity.
+
+229. Why is discourse context important for pronoun interpretation?
+Answer: The intended referent may have been introduced in an earlier sentence or turn.
+
+230. What is an antecedent?
+Answer: It is an earlier expression or discourse entity to which a later expression,
+such as a pronoun, refers.
+
+231. Why is text segmentation important?
+Answer: Systems need to identify meaningful units such as tokens, sentences, paragraphs,
+and sections before applying later analysis.
+
+232. Why can punctuation be an unreliable sentence-boundary clue?
+Answer: Periods can occur in abbreviations, decimals, initials, URLs, and other contexts
+that do not mark sentence endings.
+
+233. What is a multistage language-processing model?
+Answer: It separates processing into stages such as lexical analysis, syntax, semantics,
+and discourse interpretation.
+
+234. What is one advantage of modular processing?
+Answer: Components can be developed, evaluated, and diagnosed separately.
+
+235. What is one disadvantage of a strict pipeline?
+Answer: Early errors may propagate, and useful alternative analyses may be discarded
+before later evidence becomes available.
+
+236. How can a system preserve uncertainty?
+Answer: It can retain multiple candidate analyses, attach confidence estimates, or
+request clarification rather than forcing a premature choice.
+
+237. What is machine translation in a meaning-text perspective?
+Answer: It transforms source text through interpretation or intermediate representation
+into target-language text.
+
+238. Why can languages package the same content differently?
+Answer: They differ in word order, morphology, grammatical categories, idioms, and
+conventions for expressing relations or information structure.
+
+239. What is lexicalization?
+Answer: It is the selection of lexical items to express intended content.
+
+240. What is morphological realization?
+Answer: It chooses appropriate word forms, such as tense, number, case, or agreement.
+
+241. What is syntactic realization?
+Answer: It organizes selected words and phrases into a grammatical structure.
+
+242. Why are idioms difficult for literal translation?
+Answer: Their conventional meanings may not follow from the literal meanings of their
+individual words.
+
+243. What is adequacy in translation?
+Answer: It concerns preservation of the source's relevant meaning and information.
+
+244. What is fluency in translation?
+Answer: It concerns whether the target text reads naturally and follows target-language
+conventions.
+
+245. Can two different translations both be acceptable?
+Answer: Yes. They may preserve the same important content while differing in wording,
+structure, tone, or emphasis.
+
+246. Why should translation preserve uncertainty?
+Answer: The source may be ambiguous or underspecified; a translation should not invent
+a definite interpretation without sufficient evidence.
+
+247. What is a paraphrase?
+Answer: It is an alternative expression of substantially similar content.
+
+248. How can paraphrase recognition support information retrieval?
+Answer: It helps identify documents or passages that express a query's idea using
+different words.
+
+249. What is the main lesson of the meaning-text chapter?
+Answer: Language maps between meaning and expression in complex, non-unique ways, and
+context and intermediate representations help manage that complexity.
+
+250. Why is meaning representation central to generation and understanding?
+Answer: It provides a structured bridge between linguistic form and the content a
+system is intended to interpret or express.
+
+================================================================================
+PART F. CHAPTER V — LINGUISTIC MODELS (Questions 251–300)
+================================================================================
+
+251. What is a linguistic model?
+Answer: It is an explicit account of selected linguistic properties designed to explain
+phenomena or support a computational task.
+
+252. Is a model identical to language itself?
+Answer: No. A model simplifies and represents selected aspects of language for a
+specific purpose.
+
+253. What is descriptive adequacy in model design?
+Answer: It is the extent to which the model captures the relevant linguistic patterns.
+
+254. What is a procedural model?
+Answer: It specifies how a system performs operations to analyze, search for, or generate
+structures.
+
+255. How does a descriptive model differ from a procedural model?
+Answer: A descriptive model specifies what structures or relations are possible; a
+procedural model specifies how a computation obtains or uses them.
+
+256. Why does a formal grammar not automatically provide an efficient parser?
+Answer: The grammar may allow many analyses, and the parser still needs an algorithm
+to search for the appropriate structure.
+
+257. What is a symbolic model?
+Answer: It represents knowledge through explicit symbols, rules, categories, and
+constraints.
+
+258. What is a statistical model?
+Answer: It estimates patterns or probabilities from data and uses them to make predictions
+or rank alternatives.
+
+259. What is a neural model?
+Answer: It uses parameterized neural networks to learn representations and mappings
+from data.
+
+260. What is one strength of symbolic models?
+Answer: Their explicit rules and structures can make assumptions easier to inspect.
+
+261. What is one limitation of symbolic models?
+Answer: Hand-built rules and resources can be expensive to create and may not cover
+unexpected language variation.
+
+262. What is one strength of statistical or neural models?
+Answer: They can learn complex patterns from data and generalize beyond individually
+written rules when training data is suitable.
+
+263. What is one limitation of learned models?
+Answer: They can inherit data biases, fail under domain shift, and produce outputs that
+are difficult to explain or verify.
+
+264. What is a hybrid model?
+Answer: It combines symbolic, statistical, neural, or resource-based components.
+
+265. What is overfitting?
+Answer: It occurs when a model fits training data too closely and performs poorly on
+new relevant data.
+
+266. How can a researcher detect overfitting?
+Answer: Compare training and held-out performance, inspect learning curves, and test
+on properly separated data.
+
+267. What is underfitting?
+Answer: It occurs when a model is too limited to capture important patterns even in
+the training data.
+
+268. What is domain adaptation?
+Answer: It is the process of improving a model's performance for a target domain that
+differs from its original training domain.
+
+269. What is a feature in a model?
+Answer: It is a represented property or signal used in prediction, such as word form,
+context, grammatical category, or a learned numerical representation.
+
+270. What is a parameter?
+Answer: It is a value learned or set within a model that affects its behavior.
+
+271. What is a hyperparameter?
+Answer: It is a configuration choice set outside the ordinary parameter-learning
+process, such as model size or a regularization strength.
+
+272. Why should training, development, and test sets be separate?
+Answer: They serve different roles: fitting, tuning, and final evaluation; separation
+reduces optimistic bias.
+
+273. What is cross-validation?
+Answer: It evaluates a method across multiple train-validation splits to estimate
+how performance varies across data partitions.
+
+274. What is a baseline?
+Answer: It is a simple comparison system used to determine whether a more complex method
+offers a meaningful improvement.
+
+275. Why is interpretability important?
+Answer: It helps researchers or users understand why a system made a decision and
+identify possible errors or inappropriate assumptions.
+
+276. Does interpretability guarantee correctness?
+Answer: No. An easily understood rule or explanation can still be wrong or incomplete.
+
+277. What is model calibration?
+Answer: Calibration concerns whether confidence estimates correspond to observed
+frequencies of correctness.
+
+278. Why is uncertainty estimation useful?
+Answer: It can help systems defer, request clarification, or trigger human review when
+the evidence is weak.
+
+279. What is abstention in a predictive system?
+Answer: It is the choice not to make a definitive prediction when confidence or evidence
+is insufficient.
+
+280. What is a linguistic resource?
+Answer: It is a structured source of language information, such as a lexicon, corpus,
+grammar, ontology, or annotated dataset.
+
+281. Why is resource documentation important?
+Answer: It explains how the resource was created, what it covers, how labels are defined,
+and where it may be unreliable.
+
+282. What is annotation bias?
+Answer: It occurs when annotation decisions systematically reflect inconsistent
+guidelines, limited perspectives, or assumptions that affect labels.
+
+283. Why does data representativeness matter for fairness?
+Answer: Underrepresented varieties or groups may receive worse performance if the
+system is evaluated and trained mainly on other populations.
+
+284. What is reproducibility?
+Answer: It is the ability to understand and, where possible, repeat an experiment using
+documented data, procedures, and configurations.
+
+285. Why should researchers report limitations?
+Answer: Limitations help readers interpret results and avoid applying conclusions
+outside the evidence or intended scope.
+
+286. What is an ablation study?
+Answer: It tests the contribution of a component by removing or changing it and measuring
+the effect on performance.
+
+287. Why is ablation useful?
+Answer: It can reveal whether a component contributes real value or merely adds
+complexity without measurable benefit.
+
+288. What is error analysis?
+Answer: It is the systematic examination of incorrect outputs to identify recurring
+causes and opportunities for improvement.
+
+289. What is a confusion matrix?
+Answer: It is a table comparing predicted classes with reference classes, showing
+correct and incorrect classifications by category.
+
+290. When can accuracy be misleading?
+Answer: It can conceal poor performance on rare classes or cases where false positives
+and false negatives have very different costs.
+
+291. What is the F1 score?
+Answer: It is the harmonic mean of precision and recall.
+
+292. Why should metrics match the task?
+Answer: A metric should measure the outcome that matters; token accuracy, factuality,
+ranking quality, and user success are different objectives.
+
+293. What is data shift?
+Answer: It is a change between the data distribution used for development and the
+distribution encountered in evaluation or deployment.
+
+294. What is responsible language technology?
+Answer: It includes careful evaluation, privacy protection, bias analysis, transparent
+limitations, and safeguards appropriate to the application's risks.
+
+295. Why can dialect variation be misclassified as error?
+Answer: A system trained on one standard or variety may treat valid forms from another
+variety as incorrect because its data and rules are too narrow.
+
+296. What is a high-stakes language application?
+Answer: It is an application where errors can have substantial consequences, such as
+some medical, legal, financial, or public-service uses.
+
+297. Why may high-stakes applications require human review?
+Answer: Review can catch consequential mistakes and assess context or evidence the
+automated system may miss.
+
+298. How should one choose between symbolic and neural methods?
+Answer: Compare task needs, data availability, coverage, interpretability, latency,
+maintenance, and empirical results rather than assuming one method is always best.
+
+299. Why should models be tested on adversarial or difficult examples?
+Answer: Such examples can expose brittle shortcuts and weaknesses hidden by ordinary
+test data.
+
+300. What is the main lesson of the linguistic-models chapter?
+Answer: Models are purposeful simplifications that need appropriate resources,
+evaluation, uncertainty handling, and continual examination of their errors.
+
+================================================================================
+PART G. INTEGRATED APPLICATION AND ANALYSIS QUESTIONS (301–340)
+================================================================================
+
+301. A system flags “their” in “Their going to arrive.” What issue is it detecting?
+Answer: It is likely detecting a real-word grammatical or contextual error, where
+“they're” may be intended.
+
+302. Why might a spell checker wrongly flag a person's surname?
+Answer: The surname may be absent from the lexicon even though it is valid.
+
+303. A parser gives two structures for one sentence. Is that necessarily a failure?
+Answer: No. It may correctly represent genuine structural ambiguity; a later component
+can rank or resolve the alternatives.
+
+304. Why might a summary omit a key qualification?
+Answer: The summarizer may prioritize prominent content without adequately representing
+the qualification or its relation to the main claim.
+
+305. A translation changes “may” to “will.” What kind of problem is this?
+Answer: It changes modality and certainty, potentially making the target text stronger
+than the source.
+
+306. Why should an extraction system distinguish a proposed event from a completed event?
+Answer: Otherwise it may store a plan or possibility as an established fact.
+
+307. A question-answering system retrieves a relevant document but answers incorrectly. Where might the error occur?
+Answer: It may occur during passage selection, interpretation, reasoning, answer
+generation, or failure to verify evidence.
+
+308. Why should a text generator use structured input data?
+Answer: Structured data can help preserve exact facts and keep content selection
+separate from linguistic realization.
+
+309. A grammar checker flags many dialect forms. What should developers investigate?
+Answer: Training data, annotation policy, the target language standard, evaluation
+coverage, and the distinction between variation and error.
+
+310. A neural classifier works on news but fails on social media. What is a likely explanation?
+Answer: Domain shift, including different vocabulary, spelling, syntax, and communicative
+conventions.
+
+311. Why should a language system preserve source evidence?
+Answer: Evidence allows users and reviewers to verify claims and diagnose unsupported
+outputs.
+
+312. How can a system reduce false positives?
+Answer: Improve context modeling, resources, decision thresholds, annotation quality,
+and evaluation on legitimate edge cases.
+
+313. How can a system reduce false negatives?
+Answer: Increase relevant coverage, improve detection signals, adjust thresholds, and
+analyze missed cases.
+
+314. Why is a confidence score not automatically trustworthy?
+Answer: The model may be poorly calibrated or overconfident on unfamiliar inputs.
+
+315. Why should a search engine return diverse results for ambiguous queries?
+Answer: Diversity can expose several plausible interpretations rather than prematurely
+committing to one.
+
+316. What is the role of lexical resources in translation?
+Answer: They provide senses, inflection, valency, terminology, and collocation information
+that can guide lexical and structural choices.
+
+317. Why might a literal translation be misleading even when its words are correct?
+Answer: Idioms, grammatical conventions, and contextual meaning may not align word by
+word across languages.
+
+318. How can dependency parsing support information extraction?
+Answer: It can identify grammatical relations that help connect predicates to entities
+and distinguish participants.
+
+319. Why is dependency parsing not sufficient for all event extraction?
+Answer: Event extraction may also require coreference, semantic interpretation, negation,
+modality, temporal reasoning, and document context.
+
+320. How does discourse context help coreference resolution?
+Answer: It provides earlier entities, topic continuity, grammatical cues, and semantic
+compatibility that help identify a pronoun's referent.
+
+321. Why can a valid sentence be difficult for a simple grammar?
+Answer: It may contain an unmodeled construction, long-distance dependency, variation,
+or a lexical pattern missing from the grammar.
+
+322. What is the danger of evaluating only average performance?
+Answer: It can hide systematic failures on particular languages, genres, groups, or
+linguistic constructions.
+
+323. Why is a held-out test set important for model comparison?
+Answer: It provides a common, less biased basis for estimating generalization, provided
+the test set is not repeatedly used for tuning.
+
+324. What is the difference between a model error and a data error?
+Answer: A model error arises from the system's analysis or prediction; a data error may
+come from incorrect, incomplete, or inconsistent input or reference annotation.
+
+325. Why should annotation disagreements be reviewed?
+Answer: They can reveal ambiguous examples, unclear guidelines, or weaknesses in the
+annotation scheme.
+
+326. How could a natural-language interface handle an ambiguous date?
+Answer: It can use context and locale conventions or ask the user to clarify before
+performing an important action.
+
+327. Why is authorization separate from semantic interpretation?
+Answer: A system can understand an instruction without having permission to carry it out.
+
+328. How can collocation knowledge improve generated text?
+Answer: It encourages conventional word combinations and reduces awkward but technically
+grammatical expressions.
+
+329. What is the difference between grammaticality and truth?
+Answer: Grammaticality concerns structural well-formedness; truth concerns whether a
+proposition is accurate in a particular situation or model.
+
+330. What is the difference between meaning and plausibility?
+Answer: Meaning concerns interpretation; plausibility concerns how likely or realistic
+that interpretation seems given world knowledge and context.
+
+331. Why can an unusual sentence still be grammatically structured?
+Answer: Its syntax may follow grammatical patterns even if its content is implausible,
+metaphorical, or contradictory.
+
+332. Why is the choice of semantic primitives theoretically important?
+Answer: It determines which distinctions a system can express and which inferences it
+can support.
+
+333. What does it mean to preserve uncertainty in translation?
+Answer: The translation should avoid resolving ambiguity more strongly than the source
+or evidence permits.
+
+334. How can a hybrid system combine a neural model with a grammar?
+Answer: The neural model can propose or rank analyses while grammatical constraints
+check structure or restrict invalid outputs.
+
+335. Why should a simple baseline be included in an experiment?
+Answer: It shows whether the proposed method improves on an inexpensive reference and
+helps justify added complexity.
+
+336. What should be documented for a reproducible experiment?
+Answer: Data selection, preprocessing, annotation, splits, model settings, evaluation
+metrics, software versions, and relevant implementation details.
+
+337. How can privacy constrain corpus sharing?
+Answer: Personal or sensitive content may require consent, anonymization, restricted
+access, or non-public release.
+
+338. Why is system maintenance part of language technology?
+Answer: Language changes, new terminology appears, domains shift, and errors or security
+issues require updates.
+
+339. What is the value of a human-centered evaluation?
+Answer: It tests whether the system actually helps users accomplish their goals and
+whether its errors are acceptable in real use.
+
+340. What unifies the major themes of the book?
+Answer: The need to represent language explicitly, manage the relationship between form
+and meaning, use suitable resources, build workable models, and evaluate real performance.
+
+================================================================================
+PART H. SHORT-ANSWER AND DEFINITIONS (Questions 341–365)
+================================================================================
+
+341. Define morphology.
+Answer: The study of word structure and word formation.
+
+342. Define syntax.
+Answer: The study of how words combine into phrases and sentences.
+
+343. Define semantics.
+Answer: The study of linguistic meaning.
+
+344. Define pragmatics.
+Answer: The study of context-dependent interpretation and communicative use.
+
+345. Define corpus.
+Answer: A collection of language data assembled for a defined purpose.
+
+346. Define lexicon.
+Answer: A resource describing lexical items and their properties.
+
+347. Define parser.
+Answer: A system that assigns a structural analysis to linguistic input.
+
+348. Define generator.
+Answer: A system that produces linguistic output from a representation or goal.
+
+349. Define ambiguity.
+Answer: The possibility of multiple analyses or interpretations.
+
+350. Define valency.
+Answer: The complement or participant patterns associated with a lexical item.
+
+351. Define unification.
+Answer: The combination of compatible feature structures under a constraint system.
+
+352. Define collocation.
+Answer: A conventional or recurrent combination of words.
+
+353. Define information retrieval.
+Answer: The process of finding and ranking relevant documents or passages.
+
+354. Define information extraction.
+Answer: The conversion of information in text into structured records.
+
+355. Define summarization.
+Answer: The production of a shorter representation that preserves important source
+information.
+
+356. Define machine translation.
+Answer: The automatic conversion of text from one language to another.
+
+357. Define precision.
+Answer: The proportion of predicted positive cases that are correct.
+
+358. Define recall.
+Answer: The proportion of relevant positive cases that are found.
+
+359. Define overfitting.
+Answer: Excessive adaptation to training data that harms generalization.
+
+360. Define domain shift.
+Answer: A difference between development data and the data encountered in use.
+
+361. Define coreference.
+Answer: The relation in which two or more expressions refer to the same entity.
+
+362. Define named-entity recognition.
+Answer: The identification and classification of mentions such as people, places,
+organizations, and dates.
+
+363. Define surface realization.
+Answer: The conversion of a planned structure or content representation into a final
+linguistic form.
+
+364. Define error propagation.
+Answer: The spread of an earlier component's error into downstream processing.
+
+365. Define reproducibility.
+Answer: The ability to understand and, where possible, repeat a study from its documented
+data and procedures.
+
+================================================================================
+PART I. EXTENDED ESSAY QUESTIONS (Questions 366–390)
+================================================================================
+
+366. Explain why computational linguistics needs both formal linguistic theory and
+empirical evaluation.
+Answer outline: Define formalization and empirical evaluation; explain that rules and
+representations make assumptions explicit, while data tests their coverage and accuracy;
+give an example such as valency or ambiguity; conclude that neither theory nor data alone
+guarantees a useful system.
+
+367. Compare constituency and dependency representations, using one sentence.
+Answer outline: Define phrase grouping and head-dependent relations; draw or describe both
+analyses; explain what each representation makes easy to inspect; mention that neither
+automatically resolves semantic ambiguity.
+
+368. Discuss the role of the lexicon in language processing.
+Answer outline: Cover word senses, grammatical category, inflection, valency, collocations,
+and domain terminology; explain consequences for parsing, generation, and translation;
+mention coverage and maintenance.
+
+369. Explain the significance of unification in constraint-based grammar.
+Answer outline: Define feature structures; show a compatible combination and a conflict;
+explain agreement or subcategorization; discuss the limits imposed by the feature inventory.
+
+370. Discuss ambiguity as both a challenge and a normal property of language.
+Answer outline: Define lexical, syntactic, and referential ambiguity; provide examples;
+explain contextual ranking, multiple analyses, clarification, and abstention.
+
+371. Compare spell checking and grammar checking.
+Answer outline: Contrast word-form detection with sentence-level grammatical analysis;
+discuss real-word errors, agreement, context, precision, recall, and false alarms.
+
+372. Explain why summarization requires factuality and salience.
+Answer outline: Define salience as importance and factuality as source support; discuss
+omission, distortion, unsupported additions, and limitations of overlap metrics.
+
+373. Explain why machine translation cannot be reduced to dictionary substitution.
+Answer outline: Discuss syntax, morphology, idioms, valency, collocation, register, and
+context; distinguish adequacy from fluency.
+
+374. Compare information retrieval and information extraction.
+Answer outline: Retrieval finds relevant documents; extraction converts text into structured
+facts. Discuss outputs, resources, evaluation, and a practical example of each.
+
+375. Describe a meaning-to-text generation pipeline.
+Answer outline: Content selection, semantic organization, lexicalization, syntactic
+planning, morphological realization, and surface formatting; explain where errors can occur.
+
+376. Explain how context contributes to word-sense disambiguation.
+Answer outline: Use a word such as “bank”; discuss nearby words, topic, syntax, discourse,
+and world knowledge; explain why context is evidence rather than a guarantee.
+
+377. Discuss how early pipeline errors can affect final outputs.
+Answer outline: Give a tokenization or parsing example; trace downstream consequences;
+suggest confidence propagation, alternative analyses, feedback, and component testing.
+
+378. Compare symbolic, statistical, and neural approaches.
+Answer outline: Define each; compare explicitness, data needs, coverage, interpretability,
+maintenance, and generalization; argue that suitability depends on the task.
+
+379. Explain overfitting and how to detect it.
+Answer outline: Define overfitting; compare training and test performance; discuss leakage,
+domain shift, validation, and the need for held-out evaluation.
+
+380. Why are linguistic resources essential, and how should they be evaluated?
+Answer outline: Discuss corpora, lexicons, annotation, coverage, accuracy, representativeness,
+documentation, licensing, and maintenance.
+
+381. Discuss the relationship between grammatical function and semantic role.
+Answer outline: Define subject/object and agent/patient; use active and passive sentences;
+explain why surface order alone cannot determine participant roles.
+
+382. Explain the challenges of extracting events from text.
+Answer outline: Identify entities, predicates, participants, dates, polarity, modality,
+coreference, and evidence; show how negation or hypothetical status can change a record.
+
+383. What makes a language technology trustworthy?
+Answer outline: Appropriate task definition, evidence, robust evaluation, uncertainty
+handling, privacy, fairness analysis, transparent limitations, and suitable human review.
+
+384. Discuss why style cannot be reduced to a universal list of rules.
+Answer outline: Explain audience, genre, register, purpose, and context; distinguish
+grammatical errors from optional stylistic choices; discuss false alarms.
+
+385. Explain the difference between a formal grammar and a parser.
+Answer outline: A grammar defines licensed structures; a parser searches for an analysis
+of an input; explain that grammar coverage and algorithmic efficiency are separate issues.
+
+386. Discuss the relationship between meaning representation and question answering.
+Answer outline: A representation encodes relevant content and relations; question answering
+must interpret the query, retrieve or access evidence, reason, and formulate a supported answer.
+
+387. Explain how evaluation metrics should reflect application risks.
+Answer outline: Define precision and recall; discuss unequal costs of errors, high-stakes
+settings, human review, and why one aggregate score is not enough.
+
+388. Discuss the advantages and risks of a modular architecture.
+Answer outline: Advantages include separation of concerns and diagnosability; risks include
+error propagation and premature loss of alternatives; propose feedback and end-to-end tests.
+
+389. Explain how corpus design can influence model performance and fairness.
+Answer outline: Discuss genre, time period, language variety, population, annotation, privacy,
+and mismatch between training and deployment data.
+
+390. Summarize the central relationship between language, models, resources, and applications.
+Answer outline: Language phenomena motivate representations; models operationalize them;
+resources provide evidence and lexical knowledge; applications impose goals and error costs;
+evaluation tests whether the complete design works.
+
+================================================================================
+PART J. MULTIPLE-CHOICE QUESTIONS (Questions 391–420)
+================================================================================
+
+391. Which task assigns a syntactic structure to a sentence?
+A. Parsing  B. Hyphenation  C. Compression  D. Encryption
+Answer: A. Parsing.
+
+392. Which resource is a collection of language data?
+A. Parser  B. Corpus  C. Hyperparameter  D. Dependency arc
+Answer: B. Corpus.
+
+393. Which term refers to a head-dependent relation between words?
+A. Dependency  B. Edit distance  C. Recall  D. Register
+Answer: A. Dependency.
+
+394. Which is an example of a real-word spelling error?
+A. “qzxpt”  B. “Their going home” when “They're” is intended
+C. A valid surname  D. A correct technical term
+Answer: B. “Their” is a valid word but may be wrong in context.
+
+395. Which metric measures the fraction of predicted positive cases that are correct?
+A. Recall  B. Precision  C. Coverage  D. Latency
+Answer: B. Precision.
+
+396. Which metric measures the fraction of relevant cases found?
+A. Recall  B. Precision  C. Fluency  D. Edit distance
+Answer: A. Recall.
+
+397. Which is an example of information extraction?
+A. Ranking web pages  B. Extracting names and dates into fields
+C. Producing audio  D. Changing font size
+Answer: B. Extracting names and dates into fields.
+
+398. Which approach explicitly uses rules and symbolic structures?
+A. Symbolic modeling  B. Random sampling only  C. File compression  D. Image resizing
+Answer: A. Symbolic modeling.
+
+399. What does unification combine?
+A. Images  B. Compatible feature structures  C. Web pages  D. Audio frequencies only
+Answer: B. Compatible feature structures.
+
+400. Which is an example of lexical ambiguity?
+A. “Bank” meaning a financial institution or river edge
+B. A sentence with one clear interpretation
+C. A file name
+D. A punctuation convention only
+Answer: A. “Bank” has multiple senses.
+
+401. What does a test set primarily support?
+A. Final evaluation  B. Writing all grammar rules  C. Storing passwords  D. Formatting pages
+Answer: A. Final evaluation.
+
+402. What is a risk of data leakage?
+A. Better font rendering  B. Overly optimistic evaluation
+C. More annotation guidelines  D. More diverse test cases
+Answer: B. Overly optimistic evaluation.
+
+403. Which application produces a shorter version of a source text?
+A. Summarization  B. Tokenization  C. Coreference only  D. Hyphenation
+Answer: A. Summarization.
+
+404. What is a key risk in automatic event extraction?
+A. Recording a negated event as positive
+B. Counting characters
+C. Adjusting page margins
+D. Changing a filename
+Answer: A. Recording a negated event as positive.
+
+405. What does domain shift mean?
+A. A change in text font
+B. A mismatch between development and deployment data
+C. A grammar rule
+D. A synonym list
+Answer: B. A mismatch between development and deployment data.
+
+406. Which representation groups words into phrases?
+A. Constituency structure  B. Confusion matrix  C. Edit distance  D. Corpus metadata
+Answer: A. Constituency structure.
+
+407. Which task converts text into another language?
+A. Machine translation  B. Named-entity recognition  C. Spell checking only
+D. Sentence segmentation
+Answer: A. Machine translation.
+
+408. Why can a fluent translation still be wrong?
+A. Fluency does not guarantee meaning preservation
+B. Fluency is the same as truth
+C. All translations are literal
+D. Target languages have no grammar
+Answer: A. Fluency does not guarantee meaning preservation.
+
+409. Which is a form of contextual evidence?
+A. Nearby words and discourse topic
+B. File size alone
+C. Screen brightness
+D. Keyboard color
+Answer: A. Nearby words and discourse topic.
+
+410. What does coreference resolution identify?
+A. Expressions referring to the same entity
+B. Spelling boundaries only
+C. Sentence length
+D. Word font
+Answer: A. Expressions referring to the same entity.
+
+411. What is a false positive?
+A. A correct positive prediction
+B. An incorrect positive prediction
+C. A missed positive case
+D. A missing file
+Answer: B. An incorrect positive prediction.
+
+412. What is a false negative?
+A. A missed positive case
+B. An incorrect positive prediction
+C. A correct negative prediction
+D. A correct translation
+Answer: A. A missed positive case.
+
+413. Which is the main purpose of a baseline?
+A. Provide a reference for comparison
+B. Replace all evaluation
+C. Guarantee fairness
+D. Eliminate ambiguity
+Answer: A. Provide a reference for comparison.
+
+414. Which term refers to a conventional word combination?
+A. Collocation  B. Tokenization  C. Overfitting  D. Scope
+Answer: A. Collocation.
+
+415. Which type of model learns distributed representations through neural networks?
+A. Neural model  B. Printed dictionary  C. Manual index only  D. Hyphenation list only
+Answer: A. Neural model.
+
+416. Which is a benefit of explicit symbolic rules?
+A. They can make assumptions easier to inspect
+B. They guarantee perfect coverage
+C. They eliminate the need for data
+D. They always outperform neural models
+Answer: A. They can make assumptions easier to inspect.
+
+417. What does semantic role labeling aim to identify?
+A. Participant roles in events or predicates
+B. Font size
+C. File permissions
+D. Sentence count only
+Answer: A. Participant roles in events or predicates.
+
+418. What is one reason to ask a clarifying question?
+A. The user's request is ambiguous in a consequential way
+B. The system has already verified everything
+C. All language is unambiguous
+D. It makes evaluation unnecessary
+Answer: A. The user's request is ambiguous in a consequential way.
+
+419. What is one purpose of error analysis?
+A. Find recurring failure patterns
+B. Hide mistakes
+C. Replace test data with training data
+D. Guarantee that every output is correct
+Answer: A. Find recurring failure patterns.
+
+420. Which statement best describes computational linguistics?
+A. It studies and builds computational methods for language
+B. It only studies handwriting
+C. It only translates individual words
+D. It excludes meaning and context
+Answer: A. It studies and builds computational methods for language.
+
+================================================================================
+FINAL REVISION CHECKLIST
+================================================================================
+
+Before an exam or oral defense, make sure you can:
+1. Define computational linguistics and explain its interdisciplinary character.
+2. Distinguish morphology, syntax, semantics, pragmatics, and discourse.
+3. Explain corpora, annotation, tokenization, lemmas, and lexical resources.
+4. Describe context-free grammar, derivation, parse tree, constituency, and dependency.
+5. Explain transformations, valency, constraints, HPSG, feature structures, and unification.
+6. Describe the broad meaning-text perspective and the non-uniqueness of mapping.
+7. Distinguish synonymy, homonymy, lexical ambiguity, syntactic ambiguity, and reference.
+8. Compare spell checking, grammar checking, style checking, retrieval, summarization,
+   translation, extraction, generation, and language interfaces.
+9. Compare symbolic, statistical, neural, and hybrid models.
+10. Explain train, development, and test sets, data leakage, overfitting, domain shift,
+    precision, recall, and error analysis.
+11. Discuss resource quality, representativeness, privacy, fairness, and reproducibility.
+12. Support each definition with a concrete example and explain at least one limitation.
+
+END OF QUESTION BANK
